@@ -15,13 +15,19 @@ CREATE TABLE employee_department (
 
 CREATE TABLE employee (
     id SERIAL PRIMARY KEY,
+    id_jefe int NULL,
     first_name varchar(50) NOT NULL,
     last_name varchar(80) NOT NULL,
     id_department int,
     CONSTRAINT fk_employee_dept
     FOREIGN KEY (id_department)
     REFERENCES employee_department(id)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT fk_jefe
+    FOREIGN KEY (id_jefe)
+    REFERENCES employee(id)
     ON DELETE RESTRICT ON UPDATE CASCADE
+
 );
 
 CREATE TABLE hobby (
@@ -50,10 +56,13 @@ INSERT INTO employee_department(name, description) values ('Recursos Humanos', '
 INSERT INTO employee_department(name, description) values ('Inventario', 'Departamento de Inventario');
 INSERT INTO employee_department(name, description) values ('Ingeniería', 'Departamento de Ingenieria');
 
-INSERT INTO employee(first_name, last_name, id_department) values ('Hugo', 'Cáceres', 1);
-INSERT INTO employee(first_name, last_name, id_department) values ('Paco', 'Sarmiento', 1);
-INSERT INTO employee(first_name, last_name, id_department) values ('Luis', 'Calderón', 2);
-INSERT INTO employee(first_name, last_name, id_department) values ('Rebeca', 'Quijano', 6);
+INSERT INTO employee(first_name, last_name, id_department, id_jefe) values ('Donald', 'Trump', 1, NULL);
+INSERT INTO employee(first_name, last_name, id_department, id_jefe) values ('Valentín', 'Paniagua', 2, NULL);
+INSERT INTO employee(first_name, last_name, id_department, id_jefe) values ('Gloria', 'Alvarez', 6, NULL);
+INSERT INTO employee(first_name, last_name, id_department, id_jefe) values ('Hugo', 'Cáceres', 1, 1);
+INSERT INTO employee(first_name, last_name, id_department, id_jefe) values ('Paco', 'Sarmiento', 1, 1);
+INSERT INTO employee(first_name, last_name, id_department, id_jefe) values ('Luis', 'Calderón', 2, 2);
+INSERT INTO employee(first_name, last_name, id_department, id_jefe) values ('Rebeca', 'Quijano', 6, 3);
 
 INSERT INTO hobby(name, description) values ('Cocina', 'hobby hacia la cocina, preparar platos, postres, ceviche, etc');
 INSERT INTO hobby(name, description) values ('Karaoke', 'canto, imitación, interpretación a tus artistas favoritos');

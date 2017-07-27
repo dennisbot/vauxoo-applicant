@@ -26,7 +26,7 @@ CREATE TABLE employee (
 CREATE TABLE employee_hobby (
 );
 
--- ...
+-- block of insertion
 
 INSERT INTO employee_department(name, description) values ('Contabilidad y Finanzas', 'Departamento de contabilidad y finanzas');
 INSERT INTO employee_department(name, description) values ('Ventas', 'Departamento de ventas');

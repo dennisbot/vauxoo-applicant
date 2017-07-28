@@ -19,18 +19,18 @@ class PrimeClass(object):
         """
 
         from math import sqrt
-        """
-        we extract the middle point of divisors e.g 2, 3 are divisor of 6
-        but sqrt(6) = 2.44 so the max middle divisor is 2 the next one will be 6/2 = 3
-        which is on the other middle side that's why it's not necessary
-        to iterate through N
-        """
-        R = int(sqrt(num_int))
+
+        # we extract the middle point of divisors e.g 2, 3 are divisor of 6
+        # but sqrt(6) = 2.44 so the max middle divisor is 2 the next one
+        # will be 6/2 = 3 which is on the other middle side that's why it's
+        # not necessary to iterate through N
+
+        sqrt_n = int(sqrt(num_int))
 
         if num_int < 2:
             return False
 
-        for div in range(2, R + 1):
+        for div in range(2, sqrt_n + 1):
             if num_int % div == 0:
                 return False
 

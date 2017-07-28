@@ -15,6 +15,6 @@ class CalculatorClass(object):
         """
         list_size = len(num_list)
         acum = 0
-        for i in range(0, list_size):
-            acum += num_list[i]
+        for idx in range(0, list_size):
+            acum += num_list[idx]
         return acum
